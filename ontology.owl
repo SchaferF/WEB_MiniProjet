@@ -1,0 +1,505 @@
+@prefix : <http://www.semanticweb.org/flori/ontologies/2020/4/untitled-ontology-12#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/flori/ontologies/2020/4/canicross> .
+
+<http://www.semanticweb.org/flori/ontologies/2020/4/canicross> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#contain
+:contain rdf:type owl:ObjectProperty ;
+         rdfs:domain :Discipline ;
+         rdfs:range :Category .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#govern
+:govern rdf:type owl:ObjectProperty ;
+        rdfs:domain :Federation ;
+        rdfs:range :Discipline .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#hold
+:hold rdf:type owl:ObjectProperty ;
+      rdfs:domain :SportEvent ;
+      rdfs:range :Discipline .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#memberOf
+:memberOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Athlete ;
+          rdfs:range :Club .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#mush
+:mush rdf:type owl:ObjectProperty ;
+      rdfs:domain :Athlete ;
+      rdfs:range :Team .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#organize
+:organize rdf:type owl:ObjectProperty ;
+          rdfs:domain :Club ;
+          rdfs:range :SportEvent .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#own
+:own rdf:type owl:ObjectProperty ;
+     rdfs:domain :Person ;
+     rdfs:range :Dog .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#participate
+:participate rdf:type owl:ObjectProperty ;
+             rdfs:domain :Team ;
+             rdfs:range :SportEvent .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#pull
+:pull rdf:type owl:ObjectProperty ;
+      rdfs:domain :Dog ;
+      rdfs:range :Team .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#treat
+:treat rdf:type owl:ObjectProperty ;
+       rdfs:domain :Veterinary ;
+       rdfs:range :Dog .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#workFor
+:workFor rdf:type owl:ObjectProperty ;
+         rdfs:domain :Person ;
+         rdfs:range :Federation .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#AthleteLicenseID
+:AthleteLicenseID rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Athlete ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#AthleteMemberID
+:AthleteMemberID rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Athlete ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#CategoryMaxAge
+:CategoryMaxAge rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Category ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#CategoryMinAge
+:CategoryMinAge rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Category ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#CategoryName
+:CategoryName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Category ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#ClubAffiliationNumber
+:ClubAffiliationNumber rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Club ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#ClubRegion
+:ClubRegion rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Club ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DisciplineMaxDogs
+:DisciplineMaxDogs rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Discipline ;
+                   rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DisciplineMinAgeDog
+:DisciplineMinAgeDog rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Discipline ;
+                     rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DisciplineName
+:DisciplineName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Discipline ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogAge
+:DogAge rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Dog ;
+        rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogBreed
+:DogBreed rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Dog ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogGender
+:DogGender rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Dog ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogIdentification
+:DogIdentification rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Dog ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogName
+:DogName rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Dog ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FederationAcronym
+:FederationAcronym rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Federation ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FederationName
+:FederationName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Federation ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#PersonAge
+:PersonAge rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Person ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#PersonEmail
+:PersonEmail rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#PersonFamilyName
+:PersonFamilyName rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Person ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#PersonFirstName
+:PersonFirstName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Person ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#PersonGender
+:PersonGender rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Person ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#SportEventDate
+:SportEventDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain :SportEvent ;
+                rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#SportEventName
+:SportEventName rdf:type owl:DatatypeProperty ;
+                rdfs:domain :SportEvent ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#TeamCategory
+:TeamCategory rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Team ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#TeamDiscipline
+:TeamDiscipline rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Team ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#TeamRank
+:TeamRank rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Team ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#TeamStartNumber
+:TeamStartNumber rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Team ;
+                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#TeamTime
+:TeamTime rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Team ;
+          rdfs:range xsd:dateTimeStamp .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Athlete
+:Athlete rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Category
+:Category rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Club
+:Club rdf:type owl:Class ;
+      rdfs:subClassOf :Federation .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Discipline
+:Discipline rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Dog
+:Dog rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Federation
+:Federation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#SportEvent
+:SportEvent rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Team
+:Team rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Veterinary
+:Veterinary rdf:type owl:Class ;
+            rdfs:subClassOf :Person .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Alpi
+:Alpi rdf:type owl:NamedIndividual ,
+               :Dog ;
+      :pull :ManonAndAlpi ,
+            :ManonAndAlpi2 ;
+      :DogIdentification 250268731124792 ;
+      :DogName "Alpi" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#CaniX2019
+:CaniX2019 rdf:type owl:NamedIndividual ,
+                    :SportEvent ;
+           :hold :Canicross ,
+                 :Canivtt ;
+           :organize :Spiridon ;
+           :SportEventDate "24/06/2019" ;
+           :SportEventName "CaniX2019" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Canicross
+:Canicross rdf:type owl:NamedIndividual ,
+                    :Discipline ;
+           :contain :Senior ,
+                    :Veteran ;
+           :DisciplineMaxDogs 1 ;
+           :DisciplineMinAgeDog 12 ;
+           :DisciplineName "Canicross" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Canivtt
+:Canivtt rdf:type owl:NamedIndividual ,
+                  :Discipline ;
+         :contain :Senior ,
+                  :Veteran ;
+         :DisciplineMaxDogs 1 ;
+         :DisciplineMinAgeDog 18 ;
+         :DisciplineName "Canivtt" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#DogIngJura
+:DogIngJura rdf:type owl:NamedIndividual ,
+                     :Club ;
+            :organize :JuraChien4 ;
+            :ClubAffiliationNumber 39001 ;
+            :ClubRegion "Est" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FSC
+:FSC rdf:type owl:NamedIndividual ,
+              :Federation ;
+     :FederationAcronym "FSC" ;
+     :FederationName "Fédération Suisse de Canicross" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FSLC
+:FSLC rdf:type owl:NamedIndividual ,
+               :Federation ;
+      :FederationAcronym "FSLC" ;
+      :FederationName "Fédération des Sports et Loisirs Canins" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Fast
+:Fast rdf:type owl:NamedIndividual ,
+               :Dog ;
+      :pull :FlorianAndFast ,
+            :FlorianAndFast2 ;
+      :DogIdentification 250268710263606 ;
+      :DogName "Fast" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FlorianAndFast
+:FlorianAndFast rdf:type owl:NamedIndividual ,
+                         :Team ;
+                owl:sameAs :FlorianAndFast2 ;
+                :participate :JuraChien4 ;
+                :TeamCategory "Veteran" ;
+                :TeamDiscipline "Canicross" ;
+                :TeamRank 1 ;
+                :TeamStartNumber 456 ;
+                :TeamTime "00:56;12.312" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FlorianAndFast2
+:FlorianAndFast2 rdf:type owl:NamedIndividual ,
+                          :Team ;
+                 :participate :CaniX2019 ;
+                 :TeamCategory "Veteran" ;
+                 :TeamDiscipline "Canicross" ;
+                 :TeamRank 1 ;
+                 :TeamStartNumber 419 ;
+                 :TeamTime "00:15:22.135" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#FlorianSchafer
+:FlorianSchafer rdf:type owl:NamedIndividual ,
+                         :Athlete ;
+                :memberOf :DogIngJura ;
+                :mush :FlorianAndFast ,
+                      :FlorianAndFast2 ;
+                :own :Fast ;
+                :workFor :FSC ;
+                :AthleteLicenseID 201939001009 ;
+                :AthleteMemberID 009 ;
+                :PersonAge 40 ;
+                :PersonFamilyName "Schafer" ;
+                :PersonFirstName "Florian" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Jean-FrançoisBruchon
+:Jean-FrançoisBruchon rdf:type owl:NamedIndividual ,
+                               :Veterinary ;
+                      :treat :Fast ;
+                      :PersonFamilyName "Bruchon" ;
+                      :PersonFirstName "Jean-François" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#JuraChien4
+:JuraChien4 rdf:type owl:NamedIndividual ,
+                     :SportEvent ;
+            :hold :Canicross ;
+            :organize :DogIngJura ;
+            :SportEventDate "25/05/2019" ;
+            :SportEventName "Jur'A Chien 4ème édition" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#ManonAndAlpi
+:ManonAndAlpi rdf:type owl:NamedIndividual ,
+                       :Team ;
+              owl:sameAs :ManonAndAlpi2 ;
+              :participate :JuraChien4 ;
+              :TeamCategory "Senior" ;
+              :TeamDiscipline "Canicross" ;
+              :TeamRank 1 ;
+              :TeamStartNumber 489 ;
+              :TeamTime "1:12:45.556" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#ManonAndAlpi2
+:ManonAndAlpi2 rdf:type owl:NamedIndividual ,
+                        :Team ;
+               :participate :CaniX2019 ;
+               :TeamCategory "Senior" ;
+               :TeamDiscipline "Canicross" ;
+               :TeamRank 3 ;
+               :TeamStartNumber 415 ;
+               :TeamTime "00:18:12:056" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#ManonLobros
+:ManonLobros rdf:type owl:NamedIndividual ,
+                      :Athlete ;
+             :memberOf :DogIngJura ;
+             :mush :ManonAndAlpi ,
+                   :ManonAndAlpi2 ;
+             :own :Alpi ;
+             :workFor :FSLC ;
+             :AthleteLicenseID 201939001006 ;
+             :AthleteMemberID 006 ;
+             :PersonAge 30 ;
+             :PersonFamilyName "Lobros" ;
+             :PersonFirstName "Manon" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#MarieGroux
+:MarieGroux rdf:type owl:NamedIndividual ,
+                     :Veterinary ;
+            :treat :Alpi ;
+            :PersonFamilyName "Groux" ;
+            :PersonFirstName "Marie" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Senior
+:Senior rdf:type owl:NamedIndividual ,
+                 :Category ;
+        :CategoryMaxAge 39 ;
+        :CategoryMinAge 18 ;
+        :CategoryName "Senior" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Spiridon
+:Spiridon rdf:type owl:NamedIndividual ,
+                   :Club ;
+          :organize :CaniX2019 ;
+          :ClubAffiliationNumber 68001 ;
+          :ClubRegion "Est" .
+
+
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#Veteran
+:Veteran rdf:type owl:NamedIndividual ,
+                  :Category ;
+         :CategoryMaxAge 59 ;
+         :CategoryMinAge 40 ;
+         :CategoryName "Veteran" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
