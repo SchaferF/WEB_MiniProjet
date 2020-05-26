@@ -36,6 +36,7 @@ import org.eclipse.rdf4j.sail.memory.MemoryStore;
 public class Canicross {
 	
 	private static String _namespace = "http://canicross-fr.ch/";
+	//RDFS
 	private static IRI _person;
 	private static IRI _personFirstName;
 	private static IRI _personFamilyName;
@@ -80,6 +81,8 @@ public class Canicross {
 	private static IRI _participate;
 	private static IRI _hold;
 	private static IRI _contain;
+	private static IRI _volounterOf;
+	//RDF
 	private static IRI _marieGroux;
 	private static IRI _jeanFrancoisBruchon;
 	private static IRI _florianSchafer;
@@ -276,8 +279,23 @@ public class Canicross {
 		
 		//Contain
 		_contain = vf.createIRI(_namespace, "contain");
-		createProperty(rep, _contain, _discipline, _category);
+		createProperty(rep, _contain, _discipline, _category);	
 		
+		//VolounterOf
+		_volounterOf = vf.createIRI(_namespace, "volounterOf");
+		rep.getConnection().add(_volounterOf, RDFS.SUBPROPERTYOF, _memberOf);
+	}	
+	
+	private static void createProperty(Repository rep, IRI property, IRI domain, IRI range)
+	{
+		rep.getConnection().add(property, RDF.TYPE, RDF.PROPERTY);
+		rep.getConnection().add(property, RDFS.DOMAIN, domain);
+		rep.getConnection().add(property, RDFS.RANGE, range);
+	}
+
+	private static void createIndividuals(Repository rep)
+	{
+		ValueFactory vf = rep.getValueFactory();
 		//---------------------------------------------------
 		//RDF
 		_marieGroux = vf.createIRI(_namespace, "MaireGroux");
@@ -299,19 +317,7 @@ public class Canicross {
 		_canicross = vf.createIRI(_namespace, "Canicross");
 		_canivtt = vf.createIRI(_namespace, "CaniVTT");
 		_senior = vf.createIRI(_namespace, "Senior");
-		_veteran= vf.createIRI(_namespace, "Veteran");		
-		
-	}	
-	
-	private static void createProperty(Repository rep, IRI property, IRI domain, IRI range)
-	{
-		rep.getConnection().add(property, RDF.TYPE, RDF.PROPERTY);
-		rep.getConnection().add(property, RDFS.DOMAIN, domain);
-		rep.getConnection().add(property, RDFS.RANGE, range);
-	}
-
-	private static void createIndividuals(Repository rep)
-	{
+		_veteran= vf.createIRI(_namespace, "Veteran");			
 		createIndividualsVeterinary(rep, _marieGroux, "Groux", "Marie", _alpi);
 		createIndividualsVeterinary(rep, _jeanFrancoisBruchon, "Bruchon", "Jean-Francois", _fast);
 		createIndividualsAthlete(rep, _florianSchafer, "Schafer", "Florian", 40, "201939001009", "009", _fast, _dogIngJura, new IRI[]{_florianAndFast, _florianAndFast2});
@@ -602,7 +608,8 @@ public class Canicross {
 				+ "?federation a x:Federation ."
 				+ "?federation x:FederationAcronym ?acronym ."
 				+ "FILTER regex(?acronym, \"^FSC\" )"
-				+ "?federation x:govern ?discipline ."
+				+ "?federation x:govern ?y ."
+				+ "?y x:DisciplineName ?discipline ."
 				+ "}";
 		
 		TupleQuery query = rep.getConnection().prepareTupleQuery(queryString);
@@ -670,10 +677,11 @@ public class Canicross {
 				+ "PREFIX rdf: <" + RDF.NAMESPACE + ">"
 				+ "PREFIX foaf: <" + FOAF.NAMESPACE + ">"
 				+ "select Distinct ?sportEvent ?date where{"
-				+ "?sportEvent a x:SportEvent ."
-				+ "?sportEvent x:hold x:CaniVTT ."
-				+ "?sportEvent x:SportEventDate ?date ."
+				+ "?y a x:SportEvent ."
+				+ "?y x:hold x:CaniVTT ."
+				+ "?y x:SportEventDate ?date ."
 				+ "FILTER ((?date >= \"2019-01-01T00:00:00Z\"^^xsd:dateTime) && (?date < \"2020-01-01T00:00:00Z\"^^xsd:dateTime))"
+				+ "?y x:SportEventName ?sportEvent ."
 				+ "}";
 		
 		TupleQuery query = rep.getConnection().prepareTupleQuery(queryString);

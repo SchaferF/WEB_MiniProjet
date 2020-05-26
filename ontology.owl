@@ -12,6 +12,13 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/flori/ontologies/2020/4/canicross#volounterOf
+:volounterOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :memberOf ;
+             rdfs:domain :Athlete ;
+             rdfs:range :Federation .
+
+
 ###  http://www.semanticweb.org/flori/ontologies/2020/4/untitled-ontology-12#contain
 :contain rdf:type owl:ObjectProperty ;
          rdfs:domain :Discipline ;
